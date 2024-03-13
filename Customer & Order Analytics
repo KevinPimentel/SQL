@@ -89,3 +89,8 @@ FROM BIT_DB.JanSales
 GROUP BY product
 ORDER BY sum(quantity*price) desc 
 LIMIT 1
+
+--SELECT Product, SUM(quantity)
+FROM BIT_DB.FebSales
+WHERE location like '%Los Angeles%'
+GROUP BY Product

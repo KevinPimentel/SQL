@@ -1,0 +1,32 @@
+--Final SQL Project & Questions I Had
+
+
+--List the Customers not in the USA
+Select FirstName, LastName, Country, CustomerID
+from Customers 
+where Country <>'USA';
+
+--List the customers living in Brazil
+Select cust.firstname, cust.lastname, inv.InvoiceId, inv.BillingCountry, inv.InvoiceDate
+From chinook.invoices AS inv
+LEFT JOIN chinook.customers AS cust
+on inv.CustomerId =cust.CustomerId
+Where inv.BillingCountry = "Brazil";
+
+--List the employees whose title is sales support agent
+Select EmployeeID, LastName, FirstName, Title
+From employees
+Where Title = 'Sales Support Agent'
+
+--Sales Revenue from 2012
+SELECT ROUND(SUM(Total)) AS '2012_Revenue' FROM invoices
+WHERE InvoiceDate like '2012%';
+
+--List all customer emails
+SELECT DISTINCT Email
+FROM customers;
+
+--What were the total sales for 2013
+Select SUM(Total)
+From invoices
+Where InvoiceDate BETWEEN '2013-01-01' and '2013-12-31';
